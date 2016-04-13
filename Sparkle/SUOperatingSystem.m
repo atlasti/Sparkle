@@ -27,12 +27,12 @@
         version.patchVersion = components.count > 2 ? [ [components objectAtIndex:2] integerValue] : 0;
         return version;
     }
-#endif
-    
+#else
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wpartial-availability"
     return [[NSProcessInfo processInfo] operatingSystemVersion];
 #pragma clang diagnostic pop
+#endif
 }
 
 + (BOOL)isOperatingSystemAtLeastVersion:(NSOperatingSystemVersion)version
