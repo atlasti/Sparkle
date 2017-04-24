@@ -17,8 +17,6 @@
 #import "SUExport.h"
 #import "SUVersionComparisonProtocol.h"
 
-NS_ASSUME_NONNULL_BEGIN
-
 /*!
     Sparkle's default version comparator.
 
@@ -48,5 +46,4 @@ SU_EXPORT @interface SUStandardVersionComparator : NSObject <SUVersionComparison
 - (NSComparisonResult)compareVersion:(NSString *)versionA toVersion:(NSString *)versionB;
 @end
 
-NS_ASSUME_NONNULL_END
 #endif

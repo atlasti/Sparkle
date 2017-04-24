@@ -30,19 +30,19 @@ static NSString *const SUSystemProfilerPreferredLanguageKey = @"lang";
 
 @implementation SUSystemProfiler
 
-+ (NSDictionary<NSString *, NSString *> *)modelTranslationTable
++ (NSDictionary *)modelTranslationTable
 {
     // Use explicit class to use the correct bundle even when subclassed
     NSString *path = [[NSBundle bundleForClass:[SUSystemProfiler class]] pathForResource:@"SUModelTranslation" ofType:@"plist"];
     return [[NSDictionary alloc] initWithContentsOfFile:path];
 }
 
-+ (NSArray<NSDictionary<NSString *, NSString *> *> *)systemProfileArrayForHost:(SUHost *)host
++ (NSArray *)systemProfileArrayForHost:(SUHost *)host
 {
-    NSDictionary<NSString *, NSString *> *modelTranslation = [self modelTranslationTable];
+    NSDictionary *modelTranslation = [self modelTranslationTable];
 
     // Gather profile information and append it to the URL.
-    NSMutableArray<NSDictionary<NSString *, NSString *> *> *profileArray = [NSMutableArray array];
+    NSMutableArray *profileArray = [NSMutableArray array];
     NSArray *profileDictKeys = @[@"key", @"displayKey", @"value", @"displayValue"];
     int error = 0;
     int value = 0;

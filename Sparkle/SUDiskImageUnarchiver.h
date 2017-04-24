@@ -12,14 +12,10 @@
 #import <Foundation/Foundation.h>
 #import "SUUnarchiverProtocol.h"
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface SUDiskImageUnarchiver : NSObject <SUUnarchiverProtocol>
 
-- (instancetype)initWithArchivePath:(NSString *)archivePath decryptionPassword:(nullable NSString *)decryptionPassword;
+- (instancetype)initWithArchivePath:(NSString *)archivePath decryptionPassword:(NSString *)decryptionPassword;
 
 @end
-
-NS_ASSUME_NONNULL_END
 
 #endif

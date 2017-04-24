@@ -24,13 +24,13 @@
 
 @synthesize archivePath = _archivePath;
 
-+ (nullable NSArray <NSString *> *)commandAndArgumentsConformingToTypeOfPath:(NSString *)path
++ (NSArray *)commandAndArgumentsConformingToTypeOfPath:(NSString *)path
 {
-    NSArray <NSString *> *extractTGZ = @[@"/usr/bin/tar", @"-zxC"];
-    NSArray <NSString *> *extractTBZ = @[@"/usr/bin/tar", @"-jxC"];
-    NSArray <NSString *> *extractTXZ = extractTGZ;
+    NSArray *extractTGZ = @[@"/usr/bin/tar", @"-zxC"];
+    NSArray *extractTBZ = @[@"/usr/bin/tar", @"-jxC"];
+    NSArray *extractTXZ = extractTGZ;
     
-    NSDictionary <NSString *, NSArray<NSString *> *> *extractCommandDictionary =
+    NSDictionary *extractCommandDictionary =
     @{
       @".zip" : @[@"/usr/bin/ditto", @"-x",@"-k",@"-"],
       @".tar" : @[@"/usr/bin/tar", @"-xC"],
@@ -72,15 +72,15 @@
     return self;
 }
 
-- (void)unarchiveWithCompletionBlock:(void (^)(NSError * _Nullable))completionBlock progressBlock:(void (^ _Nullable)(double))progressBlock
+- (void)unarchiveWithCompletionBlock:(void (^)(NSError *))completionBlock progressBlock:(void (^)(double))progressBlock
 {
-    NSArray <NSString *> *commandAndArguments = [[self class] commandAndArgumentsConformingToTypeOfPath:self.archivePath];
+    NSArray *commandAndArguments = [[self class] commandAndArgumentsConformingToTypeOfPath:self.archivePath];
     assert(commandAndArguments != nil);
     
     NSString *command = commandAndArguments.firstObject;
     assert(command != nil);
     
-    NSArray <NSString *> *arguments = [commandAndArguments subarrayWithRange:NSMakeRange(1, commandAndArguments.count - 1)];
+    NSArray *arguments = [commandAndArguments subarrayWithRange:NSMakeRange(1, commandAndArguments.count - 1)];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         SUUnarchiverNotifier *notifier = [[SUUnarchiverNotifier alloc] initWithCompletionBlock:completionBlock progressBlock:progressBlock];

@@ -8,7 +8,6 @@
 
 #include "SULog.h"
 #include <asl.h>
-#include <os/log.h>
 #import "SUOperatingSystem.h"
 
 // For converting constants to string literals using the preprocessor
@@ -23,22 +22,14 @@ void SULog(SULogLevel level, NSString *format, ...)
     static dispatch_queue_t queue;
     static dispatch_once_t onceToken;
 
-    static os_log_t logger;
-    static BOOL hasOSLogging;
+    static BOOL hasOSLogging = NO;
 
     dispatch_once(&onceToken, ^{
         NSBundle *mainBundle = [NSBundle mainBundle];
 
         hasOSLogging = [SUOperatingSystem isOperatingSystemAtLeastVersion:(NSOperatingSystemVersion){10, 12, 0}];
 
-        if (hasOSLogging) {
-            const char *subsystem = SPARKLE_BUNDLE_IDENTIFIER;
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wpartial-availability"
-            // This creates a thread-safe object
-            logger = os_log_create(subsystem, "Sparkle");
-#pragma clang diagnostic pop
-        } else {
+        {
             uint32_t options = ASL_OPT_NO_DELAY;
             // Act the same way os_log() does; don't log to stderr if a terminal device is attached
             if (!isatty(STDERR_FILENO)) {
@@ -59,29 +50,7 @@ void SULog(SULogLevel level, NSString *format, ...)
     va_start(ap, format);
     NSString *logMessage = [[NSString alloc] initWithFormat:format arguments:ap];
     va_end(ap);
-
-    // Use os_log if available (on 10.12+)
-    if (hasOSLogging) {
-        // We'll make all of our messages formatted as public; just don't log sensitive information.
-        // Note we don't take advantage of info like the source line number because we wrap this macro inside our own function
-        // And we don't really leverage of os_log's deferred formatting processing because we format the string before passing it in
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wpartial-availability"
-        switch (level) {
-            case SULogLevelDefault:
-                // See docs for OS_LOG_TYPE_DEFAULT
-                // By default, OS_LOG_TYPE_DEFAULT seems to be more noticable than OS_LOG_TYPE_INFO
-                os_log(logger, "%{public}@", logMessage);
-                break;
-            case SULogLevelError:
-                // See docs for OS_LOG_TYPE_ERROR
-                os_log_error(logger, "%{public}@", logMessage);
-                break;
-    }
-#pragma clang diagnostic pop
-        return;
-}
-
+    
     // Otherwise use ASL
     // Make sure we do not async, because if we async, the log may not be delivered deterministically
     dispatch_sync(queue, ^{

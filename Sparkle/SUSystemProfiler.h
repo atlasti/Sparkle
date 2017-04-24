@@ -11,14 +11,11 @@
 
 #import <Foundation/Foundation.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
 @class SUHost;
 @interface SUSystemProfiler : NSObject
 
-+ (NSArray<NSDictionary<NSString *, NSString *> *> *)systemProfileArrayForHost:(SUHost *)host;
++ (NSArray *)systemProfileArrayForHost:(SUHost *)host;
 
 @end
 
-NS_ASSUME_NONNULL_END
 #endif

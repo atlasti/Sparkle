@@ -8,11 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface TerminationListener : NSObject
 
-- (instancetype)initWithProcessIdentifier:(NSNumber * _Nullable)processIdentifier;
+- (instancetype)initWithProcessIdentifier:(NSNumber *)processIdentifier;
 
 @property (nonatomic, readonly) BOOL terminated;
 
@@ -21,4 +19,3 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-NS_ASSUME_NONNULL_END

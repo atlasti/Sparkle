@@ -16,25 +16,21 @@
 #endif
 #import "SUExport.h"
 
-NS_ASSUME_NONNULL_BEGIN
-
 @class SUAppcastItem;
 SU_EXPORT @interface SUAppcast : NSObject<NSURLDownloadDelegate>
 
-@property (copy, nullable) NSString *userAgentString;
+@property (copy) NSString *userAgentString;
 
 #if __has_feature(objc_generics)
-@property (copy, nullable) NSDictionary<NSString *, NSString *> *httpHeaders;
+@property (copy) NSDictionary<NSString *, NSString *> *httpHeaders;
 #else
-@property (copy, nullable) NSDictionary *httpHeaders;
+@property (copy) NSDictionary *httpHeaders;
 #endif
 
-- (void)fetchAppcastFromURL:(NSURL *)url inBackground:(BOOL)bg completionBlock:(void (^)(NSError *_Nullable))err;
+- (void)fetchAppcastFromURL:(NSURL *)url inBackground:(BOOL)bg completionBlock:(void (^)(NSError *))err;
 - (SUAppcast *)copyWithoutDeltaUpdates;
 
-@property (readonly, copy, nullable) NSArray *items;
+@property (readonly, copy) NSArray *items;
 @end
-
-NS_ASSUME_NONNULL_END
 
 #endif

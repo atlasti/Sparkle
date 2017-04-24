@@ -17,7 +17,7 @@
 
 @implementation SUUnarchiver
 
-+ (nullable id <SUUnarchiverProtocol>)unarchiverForPath:(NSString *)path updatingHostBundlePath:(nullable NSString *)hostPath decryptionPassword:(nullable NSString *)decryptionPassword
++ (id <SUUnarchiverProtocol>)unarchiverForPath:(NSString *)path updatingHostBundlePath:(NSString *)hostPath decryptionPassword:(NSString *)decryptionPassword
 {
     if ([SUPipedUnarchiver canUnarchivePath:path]) {
         return [[SUPipedUnarchiver alloc] initWithArchivePath:path];

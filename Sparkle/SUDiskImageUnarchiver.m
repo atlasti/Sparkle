@@ -16,7 +16,7 @@
 @interface SUDiskImageUnarchiver ()
 
 @property (nonatomic, copy, readonly) NSString *archivePath;
-@property (nullable, nonatomic, copy, readonly) NSString *decryptionPassword;
+@property (nonatomic, copy, readonly) NSString *decryptionPassword;
 
 @end
 
@@ -35,7 +35,7 @@
     return NO;
 }
 
-- (instancetype)initWithArchivePath:(NSString *)archivePath decryptionPassword:(nullable NSString *)decryptionPassword
+- (instancetype)initWithArchivePath:(NSString *)archivePath decryptionPassword:(NSString *)decryptionPassword
 {
     self = [super init];
     if (self != nil) {
@@ -45,7 +45,7 @@
     return self;
 }
 
-- (void)unarchiveWithCompletionBlock:(void (^)(NSError * _Nullable))completionBlock progressBlock:(void (^ _Nullable)(double))progressBlock
+- (void)unarchiveWithCompletionBlock:(void (^)(NSError *))completionBlock progressBlock:(void (^)(double))progressBlock
 {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         SUUnarchiverNotifier *notifier = [[SUUnarchiverNotifier alloc] initWithCompletionBlock:completionBlock progressBlock:progressBlock];

@@ -29,7 +29,7 @@
     return aliasFlag.boolValue && directoryFlag.boolValue;
 }
 
-+ (nullable NSString *)installSourcePathInUpdateFolder:(NSString *)inUpdateFolder forHost:(SUHost *)host isPackage:(BOOL *)isPackagePtr isGuided:(nullable BOOL *)isGuidedPtr
++ (NSString *)installSourcePathInUpdateFolder:(NSString *)inUpdateFolder forHost:(SUHost *)host isPackage:(BOOL *)isPackagePtr isGuided:(BOOL *)isGuidedPtr
 {
     NSParameterAssert(inUpdateFolder);
     NSParameterAssert(host);
@@ -110,7 +110,7 @@
     return newAppDownloadPath;
 }
 
-+ (nullable id<SUInstallerProtocol>)installerForHost:(SUHost *)host fileOperationToolPath:(NSString *)fileOperationToolPath updateDirectory:(NSString *)updateDirectory error:(NSError * __autoreleasing *)error
++ (id<SUInstallerProtocol>)installerForHost:(SUHost *)host fileOperationToolPath:(NSString *)fileOperationToolPath updateDirectory:(NSString *)updateDirectory error:(NSError * __autoreleasing *)error
 {
     BOOL isPackage = NO;
     BOOL isGuided = NO;

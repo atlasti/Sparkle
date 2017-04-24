@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
 @protocol SUInstallerProtocol <NSObject>
 
 // Any installation work can be done prior to user application being terminated and relaunched
@@ -21,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Any installation work after the user application has been terminated. This is where the final installation work can be done.
 // After this stage is done, the user application may be relaunched.
 // Should be able to be called from non-main thread
-- (BOOL)performFinalInstallationProgressBlock:(nullable void(^)(double))cb error:(NSError **)error;
+- (BOOL)performFinalInstallationProgressBlock:(void(^)(double))cb error:(NSError **)error;
 
 // Indicates whether or not this installer can install the update silently in the background, without hindering the user
 // Should be thread safe
@@ -32,5 +30,3 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSString *)installationPath;
 
 @end
-
-NS_ASSUME_NONNULL_END

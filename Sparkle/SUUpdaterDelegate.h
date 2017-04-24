@@ -17,8 +17,6 @@
 @protocol SUVersionComparison, SUVersionDisplay;
 @class SUUpdater, SUAppcast, SUAppcastItem;
 
-NS_ASSUME_NONNULL_BEGIN
-
 // -----------------------------------------------------------------------------
 // SUUpdater Notifications for events that might be interesting to more than just the delegate
 // The updater will be the notification object
@@ -81,7 +79,7 @@ SU_EXPORT extern NSString *const SUUpdaterAppcastNotificationKey;
  
  \param updater The SUUpdater instance.
  */
-- (nullable NSString *)feedURLStringForUpdater:(SUUpdater *)updater;
+- (NSString *)feedURLStringForUpdater:(SUUpdater *)updater;
 
 /*!
  Returns whether Sparkle should prompt the user about automatic update checks.
@@ -112,7 +110,7 @@ SU_EXPORT extern NSString *const SUUpdaterAppcastNotificationKey;
  \param appcast The appcast that was downloaded from the remote server.
  \param updater The SUUpdater instance.
  */
-- (nullable SUAppcastItem *)bestValidUpdateInAppcast:(SUAppcast *)appcast forUpdater:(SUUpdater *)updater;
+- (SUAppcastItem *)bestValidUpdateInAppcast:(SUAppcast *)appcast forUpdater:(SUUpdater *)updater;
 
 /*!
  Called when a valid update is found by the update driver.
@@ -214,7 +212,7 @@ SU_EXPORT extern NSString *const SUUpdaterAppcastNotificationKey;
  
  \param updater The SUUpdater instance.
  */
-- (nullable id<SUVersionComparison>)versionComparatorForUpdater:(SUUpdater *)updater;
+- (id<SUVersionComparison>)versionComparatorForUpdater:(SUUpdater *)updater;
 
 /*!
  Returns an object that formats version numbers for display to the user.
@@ -226,7 +224,7 @@ SU_EXPORT extern NSString *const SUUpdaterAppcastNotificationKey;
  
  \param updater The SUUpdater instance.
  */
-- (nullable id<SUVersionDisplay>)versionDisplayerForUpdater:(SUUpdater *)updater;
+- (id<SUVersionDisplay>)versionDisplayerForUpdater:(SUUpdater *)updater;
 
 /*!
  Returns the path which is used to relaunch the client after the update is installed.
@@ -235,7 +233,7 @@ SU_EXPORT extern NSString *const SUUpdaterAppcastNotificationKey;
  
  \param updater The SUUpdater instance.
  */
-- (nullable NSString *)pathToRelaunchForUpdater:(SUUpdater *)updater;
+- (NSString *)pathToRelaunchForUpdater:(SUUpdater *)updater;
 
 /*!
  Called before an updater shows a modal alert window,
@@ -282,4 +280,3 @@ SU_EXPORT extern NSString *const SUUpdaterAppcastNotificationKey;
 
 @end
 
-NS_ASSUME_NONNULL_END

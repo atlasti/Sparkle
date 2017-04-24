@@ -8,14 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
 @protocol SUUnarchiverProtocol;
 
 @interface SUUnarchiver : NSObject
 
-+ (nullable id <SUUnarchiverProtocol>)unarchiverForPath:(NSString *)path updatingHostBundlePath:(nullable NSString *)hostPath decryptionPassword:(nullable NSString *)decryptionPassword;
++ (id <SUUnarchiverProtocol>)unarchiverForPath:(NSString *)path updatingHostBundlePath:(NSString *)hostPath decryptionPassword:(NSString *)decryptionPassword;
 
 @end
 
-NS_ASSUME_NONNULL_END

@@ -18,7 +18,7 @@
 
 @interface TerminationListener ()
 
-@property (nonatomic, readonly, nullable) NSNumber *processIdentifier;
+@property (nonatomic, readonly) NSNumber *processIdentifier;
 @property (nonatomic) BOOL watchedTermination;
 @property (nonatomic, copy) void (^completionBlock)(BOOL);
 
@@ -30,7 +30,7 @@
 @synthesize processIdentifier = _processIdentifier;
 @synthesize watchedTermination = _watchedTermination;
 
-- (instancetype)initWithProcessIdentifier:(NSNumber * _Nullable)processIdentifier
+- (instancetype)initWithProcessIdentifier:(NSNumber *)processIdentifier
 {
     self = [super init];
     if (self != nil) {

@@ -83,7 +83,7 @@
     return self;
 }
 
-- (void)unarchiveWithCompletionBlock:(void (^)(NSError * _Nullable))completionBlock progressBlock:(void (^ _Nullable)(double))progressBlock
+- (void)unarchiveWithCompletionBlock:(void (^)(NSError *))completionBlock progressBlock:(void (^)(double))progressBlock
 {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         @autoreleasepool {

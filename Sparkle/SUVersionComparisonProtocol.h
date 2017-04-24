@@ -16,8 +16,6 @@
 #endif
 #import "SUExport.h"
 
-NS_ASSUME_NONNULL_BEGIN
-
 /*!
     Provides version comparison facilities for Sparkle.
 */
@@ -33,5 +31,4 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-NS_ASSUME_NONNULL_END
 #endif

@@ -68,7 +68,7 @@
     return [self.bundle bundlePath];
 }
 
-- (NSString *__nonnull)name
+- (NSString *)name
 {
     NSString *name;
 
@@ -85,7 +85,7 @@
     return [[[NSFileManager defaultManager] displayNameAtPath:[self.bundle bundlePath]] stringByDeletingPathExtension];
 }
 
-- (NSString *__nonnull)version
+- (NSString *)version
 {
     NSString *version = [self objectForInfoDictionaryKey:(__bridge NSString *)kCFBundleVersionKey];
     if (!version || [version isEqualToString:@""])
@@ -93,7 +93,7 @@
     return version;
 }
 
-- (NSString *__nonnull)displayVersion
+- (NSString *)displayVersion
 {
     NSString *shortVersionString = [self objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
     if (shortVersionString)
@@ -109,7 +109,7 @@
     return (statfs_info.f_flags & MNT_RDONLY) != 0;
 }
 
-- (NSString *__nullable)publicDSAKey
+- (NSString *)publicDSAKey
 {
     // Maybe the key is just a string in the Info.plist.
     NSString *key = [self objectForInfoDictionaryKey:SUPublicDSAKeyKey];
@@ -130,7 +130,7 @@
     return [NSString stringWithContentsOfFile:keyPath encoding:NSASCIIStringEncoding error:nil];
 }
 
-- (NSString * __nullable)publicDSAKeyFileKey
+- (NSString *)publicDSAKeyFileKey
 {
     return [self objectForInfoDictionaryKey:SUPublicDSAKeyFileKey];
 }
@@ -147,7 +147,7 @@
         // the bundle can be replaced externally or even by us.
         // This is the easiest way to read the Info dictionary values *correctly* despite some performance loss.
         // A mutable method to reload the Info dictionary at certain points and have it cached at other points is challenging to do correctly.
-        CFDictionaryRef cfInfoDictionary = CFBundleCopyInfoDictionaryInDirectory((CFURLRef)self.bundle.bundleURL);
+        CFDictionaryRef cfInfoDictionary = CFBundleCopyInfoDictionaryInDirectory((__bridge CFURLRef)self.bundle.bundleURL);
         NSDictionary *infoDictionary = CFBridgingRelease(cfInfoDictionary);
         
         return [infoDictionary objectForKey:key];

@@ -8,18 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
 @protocol SUUnarchiverProtocol <NSObject>
 
 + (BOOL)canUnarchivePath:(NSString *)path;
 
 + (BOOL)unsafeIfArchiveIsNotValidated;
 
-- (void)unarchiveWithCompletionBlock:(void (^)(NSError * _Nullable))completionBlock progressBlock:(void (^ _Nullable)(double))progressBlock;
+- (void)unarchiveWithCompletionBlock:(void (^)(NSError *))completionBlock progressBlock:(void (^)(double))progressBlock;
 
 - (NSString *)description;
 
 @end
 
-NS_ASSUME_NONNULL_END

@@ -9,8 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "SUInstallerProtocol.h"
 
-NS_ASSUME_NONNULL_BEGIN
-
 @class SUHost;
 
 @interface SUPlainInstaller : NSObject <SUInstallerProtocol>
@@ -25,4 +23,3 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-NS_ASSUME_NONNULL_END

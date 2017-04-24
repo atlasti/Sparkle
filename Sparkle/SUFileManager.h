@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
 /**
  * A class used for performing file operations that may also perform authorization if allowed and if permission is denied when trying to
  * perform them normally as the running user. All operations on this class may be used on thread other than the main thread.
@@ -52,7 +50,7 @@ NS_ASSUME_NONNULL_BEGIN
  * When moving an item from a source to a destination, it is desirable to create a temporary intermediate destination on the same volume as the destination to ensure
  * that the item will be moved, and not copied, from the intermediate point to the final destination. This ensures file atomicity.
  */
-- (nullable NSURL *)makeTemporaryDirectoryWithPreferredName:(NSString *)preferredName appropriateForDirectoryURL:(NSURL *)appropriateURL error:(NSError *_Nullable*_Nullable)error;
+- (NSURL *)makeTemporaryDirectoryWithPreferredName:(NSString *)preferredName appropriateForDirectoryURL:(NSURL *)appropriateURL error:(NSError **)error;
 
 /**
  * Creates a directory at the target URL
@@ -62,7 +60,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  * This is an atomic operation.
  */
-- (BOOL)makeDirectoryAtURL:(NSURL *)targetURL error:(NSError *_Nullable*_Nullable)error;
+- (BOOL)makeDirectoryAtURL:(NSURL *)targetURL error:(NSError **)error;
 
 /**
  * Moves an item from a source to a destination
@@ -74,7 +72,7 @@ NS_ASSUME_NONNULL_BEGIN
  * If sourceURL and destinationURL reside on the same volume, this operation will be an atomic move operation.
  * Otherwise this will be equivalent to a copy & remove which will be a nonatomic operation.
  */
-- (BOOL)moveItemAtURL:(NSURL *)sourceURL toURL:(NSURL *)destinationURL error:(NSError *_Nullable*_Nullable)error;
+- (BOOL)moveItemAtURL:(NSURL *)sourceURL toURL:(NSURL *)destinationURL error:(NSError **)error;
 
 /**
  * Copies an item from a source to a destination
@@ -85,7 +83,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  * This is not an atomic operation.
  */
-- (BOOL)copyItemAtURL:(NSURL *)sourceURL toURL:(NSURL *)destinationURL error:(NSError *_Nullable*_Nullable)error;
+- (BOOL)copyItemAtURL:(NSURL *)sourceURL toURL:(NSURL *)destinationURL error:(NSError **)error;
 
 /**
  * Removes an item at a URL
@@ -95,7 +93,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  * This is not an atomic operation.
  */
-- (BOOL)removeItemAtURL:(NSURL *)url error:(NSError *_Nullable*_Nullable)error;
+- (BOOL)removeItemAtURL:(NSURL *)url error:(NSError **)error;
 
 /**
  * Changes the owner and group IDs of an item at a specified target URL to match another URL
@@ -110,7 +108,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  * This is not an atomic operation.
  */
-- (BOOL)changeOwnerAndGroupOfItemAtRootURL:(NSURL *)targetURL toMatchURL:(NSURL *)matchURL error:(NSError *_Nullable*_Nullable)error;
+- (BOOL)changeOwnerAndGroupOfItemAtRootURL:(NSURL *)targetURL toMatchURL:(NSURL *)matchURL error:(NSError **)error;
 
 /**
  * Updates the modification and access time of an item at a specified target URL to the current time
@@ -123,7 +121,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  * This is not an atomic operation.
  */
-- (BOOL)updateModificationAndAccessTimeOfItemAtURL:(NSURL *)targetURL error:(NSError *_Nullable*_Nullable)error;
+- (BOOL)updateModificationAndAccessTimeOfItemAtURL:(NSURL *)targetURL error:(NSError **)error;
 
 /**
  * Releases Apple's quarantine extended attribute from the item at the specified root URL
@@ -141,7 +139,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  * This is not an atomic operation.
  */
-- (BOOL)releaseItemFromQuarantineAtRootURL:(NSURL *)rootURL error:(NSError *_Nullable*_Nullable)error;
+- (BOOL)releaseItemFromQuarantineAtRootURL:(NSURL *)rootURL error:(NSError **)error;
 
 /**
  * Runs an installer package (pkg) in a headless mode using /usr/sbin/installer
@@ -154,8 +152,6 @@ NS_ASSUME_NONNULL_BEGIN
  * an initial authorization prompt if the calling process does not have root privileges. In other words, root privileges are required to use this method, and the file manager instance must have been created by allowing authorization.
  * An error can occur if the package is unable to be ran by the installer, or if the installer reports a non-zero exit status code.
  */
-- (BOOL)executePackageAtURL:(NSURL *)packageURL progressBlock:(nullable void(^)(double))progressBlock error:(NSError *_Nullable*_Nullable)error;
-
-NS_ASSUME_NONNULL_END
+- (BOOL)executePackageAtURL:(NSURL *)packageURL progressBlock:(void(^)(double))progressBlock error:(NSError **)error;
 
 @end

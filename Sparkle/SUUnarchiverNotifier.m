@@ -15,8 +15,8 @@
 
 @interface SUUnarchiverNotifier ()
 
-@property (nonatomic, readonly, copy) void (^completionBlock)(NSError * _Nullable);
-@property (nonatomic, readonly, copy) void (^ _Nullable progressBlock)(double);
+@property (nonatomic, readonly, copy) void (^completionBlock)(NSError *);
+@property (nonatomic, readonly, copy) void (^ progressBlock)(double);
 
 @end
 
@@ -25,7 +25,7 @@
 @synthesize completionBlock = _completionBlock;
 @synthesize progressBlock = _progressBlock;
 
-- (instancetype)initWithCompletionBlock:(void (^)(NSError * _Nullable))completionBlock progressBlock:(void (^ _Nullable)(double))progressBlock
+- (instancetype)initWithCompletionBlock:(void (^)(NSError *))completionBlock progressBlock:(void (^)(double))progressBlock
 {
     self = [super init];
     if (self != nil) {
@@ -42,11 +42,11 @@
     });
 }
 
-- (void)notifyFailureWithError:(NSError * _Nullable)reason
+- (void)notifyFailureWithError:(NSError *)reason
 {
     NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObject:SULocalizedString(@"An error occurred while extracting the archive. Please try again later.", nil) forKey:NSLocalizedDescriptionKey];
     if (reason) {
-        [userInfo setObject:(NSError * _Nonnull)reason forKey:NSUnderlyingErrorKey];
+        [userInfo setObject:(NSError *)reason forKey:NSUnderlyingErrorKey];
     }
     
     NSError *error = [NSError errorWithDomain:SUSparkleErrorDomain code:SUUnarchivingError userInfo:userInfo];

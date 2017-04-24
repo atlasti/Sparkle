@@ -9,12 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "SUInstallerProtocol.h"
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface SUPackageInstaller : NSObject <SUInstallerProtocol>
 
 - (instancetype)initWithPackagePath:(NSString *)packagePath installationPath:(NSString *)installationPath;
 
 @end
 
-NS_ASSUME_NONNULL_END

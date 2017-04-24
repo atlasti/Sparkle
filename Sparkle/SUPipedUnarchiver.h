@@ -12,14 +12,10 @@
 #import <Foundation/Foundation.h>
 #import "SUUnarchiverProtocol.h"
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface SUPipedUnarchiver : NSObject <SUUnarchiverProtocol>
 
 - (instancetype)initWithArchivePath:(NSString *)archivePath;
 
 @end
-
-NS_ASSUME_NONNULL_END
 
 #endif

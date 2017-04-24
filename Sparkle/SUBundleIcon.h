@@ -8,14 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
 @class SUHost;
 
 @interface SUBundleIcon : NSObject
 
-+ (NSURL * _Nullable)iconURLForHost:(SUHost *)host;
++ (NSURL *)iconURLForHost:(SUHost *)host;
 
 @end
 
-NS_ASSUME_NONNULL_END

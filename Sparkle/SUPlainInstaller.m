@@ -61,7 +61,7 @@
     return trimmedVersion.length > 0 ? trimmedVersion : nil;
 }
 
-- (BOOL)performInstallationToURL:(NSURL *)installationURL fromUpdateAtURL:(NSURL *)newURL withHost:(SUHost *)host fileOperationToolPath:(NSString *)fileOperationToolPath progressBlock:(nullable void(^)(double))progress error:(NSError * __autoreleasing *)error
+- (BOOL)performInstallationToURL:(NSURL *)installationURL fromUpdateAtURL:(NSURL *)newURL withHost:(SUHost *)host fileOperationToolPath:(NSString *)fileOperationToolPath progressBlock:(void(^)(double))progress error:(NSError * __autoreleasing *)error
 {
     if (installationURL == nil || newURL == nil) {
         // this really shouldn't happen but just in case
@@ -228,7 +228,7 @@
     return YES;
 }
 
-- (BOOL)performFinalInstallationProgressBlock:(nullable void(^)(double))cb error:(NSError *__autoreleasing*)error
+- (BOOL)performFinalInstallationProgressBlock:(void(^)(double))cb error:(NSError *__autoreleasing*)error
 {
     return [self performInstallationToURL:[NSURL fileURLWithPath:self.installationPath] fromUpdateAtURL:[NSURL fileURLWithPath:self.bundlePath] withHost:self.host fileOperationToolPath:self.fileOperationToolPath progressBlock:cb error:error];
 }

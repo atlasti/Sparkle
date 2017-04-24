@@ -8,18 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface SUUnarchiverNotifier : NSObject
 
-- (instancetype)initWithCompletionBlock:(void (^)(NSError * _Nullable))completionBlock progressBlock:(void (^ _Nullable)(double))progressBlock;
+- (instancetype)initWithCompletionBlock:(void (^)(NSError *))completionBlock progressBlock:(void (^)(double))progressBlock;
 
 - (void)notifySuccess;
 
-- (void)notifyFailureWithError:(NSError * _Nullable)reason;
+- (void)notifyFailureWithError:(NSError *)reason;
 
 - (void)notifyProgress:(double)progress;
 
 @end
 
-NS_ASSUME_NONNULL_END

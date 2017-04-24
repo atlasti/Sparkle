@@ -8,8 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
 @class SUHost;
 
 @interface SUApplicationInfo : NSObject
@@ -20,4 +18,3 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-NS_ASSUME_NONNULL_END
