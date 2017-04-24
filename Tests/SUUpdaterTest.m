@@ -9,6 +9,7 @@
 #import <XCTest/XCTest.h>
 #import "SUConstants.h"
 #import "SUUpdater.h"
+#import "SUUpdaterDelegate.h"
 
 @interface SUUpdaterTest : XCTestCase <SUUpdaterDelegate>
 @property (strong) NSOperationQueue *queue;
@@ -24,7 +25,7 @@
 {
     [super setUp];
     self.queue = [[NSOperationQueue alloc] init];
-    self.updater = [[SUUpdater alloc] init];
+    self.updater = [[SUUpdater alloc] initForBundle:[NSBundle bundleForClass:[self class]]];
     self.updater.delegate = self;
 }
 

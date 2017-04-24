@@ -44,13 +44,11 @@ extern NSString *const SUPublicDSAKeyFileKey;
 extern NSString *const SUAutomaticallyUpdateKey;
 extern NSString *const SUAllowsAutomaticUpdatesKey;
 extern NSString *const SUEnableAutomaticChecksKey;
-extern NSString *const SUEnableAutomaticChecksKeyOld;
 extern NSString *const SUShouldAlertForUpdatesRequiringNewerOSKey;
 extern NSString *const SUEnableSystemProfilingKey;
 extern NSString *const SUSendProfileInfoKey;
 extern NSString *const SULastProfileSubmitDateKey;
 extern NSString *const SUPromptUserOnFirstLaunchKey;
-extern NSString *const SUKeepDownloadOnFailedInstallKey;
 extern NSString *const SUDefaultsDomainKey;
 extern NSString *const SUEnableJavaScriptKey;
 extern NSString *const SUFixedHTMLDisplaySizeKey __attribute__((deprecated("This key is obsolete and has no effect.")));
@@ -76,6 +74,7 @@ extern NSString *const SUAppcastElementReleaseNotesLink;
 extern NSString *const SUAppcastElementTags;
 
 extern NSString *const SURSSAttributeURL;
+extern NSString *const SURSSAttributeLength;
 
 extern NSString *const SURSSElementDescription;
 extern NSString *const SURSSElementEnclosure;
