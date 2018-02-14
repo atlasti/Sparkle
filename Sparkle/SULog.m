@@ -8,7 +8,7 @@
 
 #include "SULog.h"
 #include <asl.h>
-#include <os/log.h>
+//#include <os/log.h>
 #import "SUOperatingSystem.h"
 
 // For converting constants to string literals using the preprocessor
@@ -17,8 +17,8 @@
 
 #include "AppKitPrevention.h"
 
-void SULog(SULogLevel level, NSString *format, ...)
-{
+void SULog(__unused SULogLevel level, __unused NSString *format, ...)
+{/*
     static aslclient client;
     static dispatch_queue_t queue;
     static dispatch_once_t onceToken;
@@ -110,4 +110,4 @@ void SULog(SULogLevel level, NSString *format, ...)
         
         asl_send(client, message);
     });
-}
+*/}
