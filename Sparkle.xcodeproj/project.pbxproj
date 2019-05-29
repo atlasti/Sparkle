@@ -529,6 +529,7 @@
 		4607BEA31948443800EF8DA4 /* nb */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = nb; path = nb.lproj/SUAutomaticUpdateAlert.xib; sourceTree = "<group>"; };
 		4607BEA41948443800EF8DA4 /* nb */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = nb; path = nb.lproj/SUUpdateAlert.xib; sourceTree = "<group>"; };
 		4607BEA51948443800EF8DA4 /* nb */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = nb; path = nb.lproj/SUUpdatePermissionPrompt.xib; sourceTree = "<group>"; };
+		4D4D24CE229E8DDE00F61977 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		525A278F133D6AE900FD8D70 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		555CF29A196C52330000B31E /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/Sparkle.strings; sourceTree = "<group>"; };
 		555CF29B196C523E0000B31E /* el */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = el; path = el.lproj/SUAutomaticUpdateAlert.xib; sourceTree = "<group>"; };
@@ -702,7 +703,6 @@
 		61B5F90209C4CEE200B25A18 /* Sparkle Test App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sparkle Test App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		61B5F90409C4CEE200B25A18 /* TestApplication-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TestApplication-Info.plist"; sourceTree = "<group>"; };
 		61B5F92409C4CFC900B25A18 /* main.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		61B5F92B09C4CFD800B25A18 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		61B5FB9409C4F04600B25A18 /* SUAppcast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUAppcast.h; sourceTree = "<group>"; };
 		61B5FB9509C4F04600B25A18 /* SUAppcast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUAppcast.m; sourceTree = "<group>"; };
 		61B5FC3F09C4FD4000B25A18 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -1652,14 +1652,9 @@
 			};
 			buildConfigurationList = 1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "Sparkle" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 1;
 			knownRegions = (
-				English,
-				Japanese,
-				French,
-				German,
-				Italian,
 				zh_TW,
 				en,
 				ca,
@@ -2283,7 +2278,6 @@
 				1A985A3A1C5C32A50001163A /* da */,
 				1A985A341C5C329E0001163A /* de */,
 				1A985A531C5C32BD0001163A /* el */,
-				61B5F92B09C4CFD800B25A18 /* English */,
 				1A985A3B1C5C32A60001163A /* es */,
 				1A985A3C1C5C32A70001163A /* fi */,
 				1A985A331C5C329D0001163A /* fr */,
@@ -2311,6 +2305,7 @@
 				1A985A511C5C32BB0001163A /* uk */,
 				1A985A4A1C5C32B50001163A /* zh-Hans */,
 				1A985A351C5C329E0001163A /* zh-Hant */,
+				4D4D24CE229E8DDE00F61977 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
